@@ -15,3 +15,11 @@ CST 311 Team Programming Assignment #4
 
 - off-line in a separate script (Python or bash) create a Certificate Authority and issue a TLS server certificate that will be bound to the web server on h2, using Lab 6 as a guide. The script should request the server common name (CN), such as www.webpa4.test as input, and issue the certificate for that CN.  (Remember you must modify the local hosts file to include that name and IP address in Task [3].) 
 
+
+**Roles:**
+- Team Lead: Yavik
+- Infastructure Engineer(OS, Mininet, Networking):
+- Certificate Authority Engineer:
+- Web Server Engineer:
+- Chat App Engineer:
+- QA Engineer:
