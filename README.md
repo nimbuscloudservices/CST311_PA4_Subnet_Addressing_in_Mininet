@@ -1,4 +1,4 @@
-# PA4_Subnet_Addressing_in_Mininet
+# PA4 Subnet Addressing in Mininet
 CST 311 Team Programming Assignment #4
 
 **The Objectives for this assignment are:**
