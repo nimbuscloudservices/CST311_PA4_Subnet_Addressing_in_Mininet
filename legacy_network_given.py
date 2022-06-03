@@ -23,7 +23,7 @@ def myNetwork():
                       port=6633)
 
     info( '*** Add switches\n')
-    
+    # moved s2 and s1 above r5
     s2 = net.addSwitch('s2', cls=OVSKernelSwitch)
     s1 = net.addSwitch('s1', cls=OVSKernelSwitch)
     r5 = net.addHost('r5', cls=Node, ip='0.0.0.0')
