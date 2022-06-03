@@ -1,5 +1,11 @@
 #!/usr/bin/python
+"""
+Team Programming Assignment #4 Subnet Addressing In Mininet
 
+Changelog:
+- Moved S2 and S1 instantiation lines before R5 instantiation to revolve runtime errors.
+-
+"""
 from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, OVSController
 from mininet.node import Host, Node
@@ -9,6 +15,11 @@ from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import TCLink, Intf
 from subprocess import call
+
+__author__ = "Layla Gallez, Saul Mendoza-Loera, Yavik Kapadia"
+__credits__ = ["Layla Gallez", "Saul Mendoza-Loera", "Yavik Kapadia"]
+__status__ = "Prototype"
+__date__ = "June 2nd, 2022"
 
 def myNetwork():
 
