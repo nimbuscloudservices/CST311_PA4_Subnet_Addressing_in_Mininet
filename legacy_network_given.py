@@ -94,16 +94,16 @@ def myNetwork():
     # added intfName1 of r3 and params1 of r3's IP
     # added intfName2 of r4 and params2 of r4's IP
     net.addLink( r3, r4, intfName1='r3', 
-                 params1={ 'ip' : '10.0.10.1' },
+                 params1={ 'ip' : '10.0.10.1/24' },
                          intfName2='r4', 
                  params2={ 'ip' : '192.168.30.1/30' } )
     
     # added intfName1 of r4 and params1 of r4's IP
     # added intfName2 of r5 and params2 of r5's IP
-    net.addLink(r4, r5,  intfName1='r4', 
-                 params1={ 'ip' : '192.168.30.1/30' },
-                         intfName2='r5', 
-                 params2={ 'ip' : '10.0.20.1/24' } )
+    net.addLink(r4, r5,  intfName3='r4', 
+                 params3={ 'ip' : '192.168.30.1/30' },
+                         intfName4='r5', 
+                 params4={ 'ip' : '10.0.20.1/24' } )
 
     info( '*** Starting network\n')
     net.build()
