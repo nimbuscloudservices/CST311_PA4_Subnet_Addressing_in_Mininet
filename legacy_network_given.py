@@ -89,6 +89,7 @@ def myNetwork():
 
     info( '*** Starting network\n')
     net.build()
+    
     info( '*** Starting controllers\n')
     for controller in net.controllers:
         controller.start()
@@ -98,7 +99,8 @@ def myNetwork():
     net.get('s1').start([c0])
 
     info( '*** Post configure switches and hosts\n')
-
+    # [Changelog] added cmd to start webserver on
+    h2.cmd("python3 web_server.py")
     CLI(net)
     net.stop()
 
