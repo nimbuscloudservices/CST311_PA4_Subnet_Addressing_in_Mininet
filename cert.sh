@@ -4,8 +4,6 @@ sudo openssl req -x509 -newkey rsa:2048 -days 1825 -keyout cakey.pem -out cacert
 #Display CA Certificate
 openssl x509 -text -noout -in cacert.pem
 
-sudo mv ./cakey.pem /etc/ssl/demoCA/private
-
 #Move root CA to the directory that the ca-certificate uses and change to ctr.
 sudo cp cacert.pem /usr/local/share/ca-certificates/cacert.crt
 
