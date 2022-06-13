@@ -15,7 +15,7 @@ sudo update-ca-certificates
 sudo openssl req -nodes -new -config /etc/ssl/openssl.cnf -newkey rsa:2048 -keyout webserver-key.pem -out webserver.csr -subj "/C=US/ST=California/L=Oakland/O=Nimbus Cloud Services/OU=IT/CN=www.webpa4.test"
 
 #Signed certificate for web server
-sudo openssl x509 -req -days 365 -in webserver.csr -CA cacert.pem -CAkey /etc/ssl/demoCA/private/cakey.pem -CAcreateserial -out webserver-cert.pem
+sudo openssl x509 -req -days 365 -in webserver.csr -CA cacert.pem -CAkey cakey.pem -CAcreateserial -out webserver-cert.pem
 
 #Display certificate for web server
 openssl x509 -text -noout -in webserver-cert.pem
