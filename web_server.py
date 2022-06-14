@@ -6,8 +6,8 @@ def main():
     # Variables you can modify
     server_address = "www.webpa4.test"
     server_port = 4443
-    ssl_key_file = "/home/mininet/webserver-key.pem"
-    ssl_certificate_file = "/home/mininet/webserver-cert.pem"
+    ssl_key_file = "webserver-key.pem"
+    ssl_certificate_file = "webserver-cert.pem"
 
     # Don't modify anything below
     httpd = http.server.HTTPServer((server_address, server_port), http.server.SimpleHTTPRequestHandler)
