@@ -76,7 +76,8 @@ class chatServer:
         mod_msg = "{0}: {1}".format(name, msg)
         print(mod_msg)
         for client in self.connections:
-            client.send(mod_msg.encode())
+            if client != self.connections[self.CLIENT_NAMES.index(name)]:
+                client.send(mod_msg.encode())
 
     def start_client_communications(self):
         """
@@ -91,7 +92,7 @@ class chatServer:
         """
         Joins threads and terminates connections
         """
-        goodbye_msg = "[SERVER] Terminated your connection"
+        goodbye_msg = "Terminating Chat..."
         for client in self.connections:
             client.send(goodbye_msg.encode())
             client.send(self.END_CONVO_KEYWORD.encode())
@@ -105,6 +106,7 @@ class chatServer:
         launches the server
         """
         print("[STARTING] Server is starting...")
+
         try:
             self.server.bind(self.ADDR)
         except socket.error as e:
