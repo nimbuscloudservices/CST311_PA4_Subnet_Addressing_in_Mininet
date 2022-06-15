@@ -4,10 +4,10 @@ import http.server
 
 def main():
     # Variables you can modify
-    server_address = "www.webpa4.test"
+    server_address = "www.nimbuscloudservices.test"
     server_port = 4443
-    ssl_key_file = "webserver-key.pem"
-    ssl_certificate_file = "webserver-cert.pem"
+    ssl_key_file = "/home/mininet/PA4_Subnet_Addressing_in_Mininet/ssl/keys/webserver-key.pem"
+    ssl_certificate_file = "/home/mininet/PA4_Subnet_Addressing_in_Mininet/ssl/certs/webserver-cert.pem"
 
     # Don't modify anything below
     httpd = http.server.HTTPServer((server_address, server_port), http.server.SimpleHTTPRequestHandler)
