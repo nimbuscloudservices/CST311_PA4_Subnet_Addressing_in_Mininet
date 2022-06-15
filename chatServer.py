@@ -1,7 +1,8 @@
 """
 Team Programming Assignment 3
-
-
+resources: https://dev.to/kalebu/how-to-make-cli-chat-application-in-python-58fba
+resources: https://pythonprogramming.net/server-chatroom-sockets-tutorial-python-3/
+resource: https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-1c110fc1c8c8
 """
 
 import socket
