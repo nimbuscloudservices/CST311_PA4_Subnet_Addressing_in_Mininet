@@ -30,3 +30,7 @@ sudo mv cacert.pem ./certs
 sudo mv webserver-cert.pem ./certs
 sudo mv cakey.pem ./keys
 sudo mv webserver-key.pem ./keys
+
+#Mofiy the Mininet host file "/etc/hosts" to include the IP addresses for the CA server and SSL Web Server
+sudo sh -c 'echo "127.0.0.1 ca.pa4.test" >> /etc/hosts'
+sudo sh -c 'echo "10.0.30.3 www.nimbuscloudservices.test" >> /etc/hosts'
