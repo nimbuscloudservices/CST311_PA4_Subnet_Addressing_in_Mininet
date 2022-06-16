@@ -26,7 +26,6 @@ class chat_client:
             elif msg:
                 print(msg)
 
-
     def send_msg(self):
         """
         Prompts user for message
@@ -58,7 +57,6 @@ class chat_client:
         # closes client whence done
         self.client_socket.close()
         sys.exit(0)
-
 
 
 if __name__ == "__main__":

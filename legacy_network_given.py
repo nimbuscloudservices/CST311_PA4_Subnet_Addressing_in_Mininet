@@ -13,7 +13,7 @@ from mininet.node import IVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import TCLink, Intf
-from subprocess import call
+from mininet.term import makeTerm
 
 __author__ = "Layla Gallez, Saul Mendoza-Loera, Yavik Kapadia"
 __credits__ = ["Layla Gallez", "Saul Mendoza-Loera", "Yavik Kapadia"]
@@ -111,8 +111,8 @@ def myNetwork():
     info( '*** Post configure switches and hosts\n')
 
     # [Changelog] added cmd to start webserver on
-    h2.cmd("python3 web_server.py")
     CLI(net)
+    net.makeTerm
     net.stop()
 
 if __name__ == '__main__':
