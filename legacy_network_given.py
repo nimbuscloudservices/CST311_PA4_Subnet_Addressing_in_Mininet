@@ -21,7 +21,6 @@ __status__ = "Prototype"
 __date__ = "June 2nd, 2022"
 
 def myNetwork():
-
     net = Mininet( topo=None,
                    build=False,
                    ipBase='10.0.10.0/24')
@@ -31,7 +30,7 @@ def myNetwork():
                          controller=Controller,
                          protocol='tcp',
                          port=6633)
-    
+
     info( '*** Add switches\n')
     # moved s2 and s1 above r5
     s2 = net.addSwitch('s2', cls=OVSKernelSwitch)
@@ -41,23 +40,20 @@ def myNetwork():
     # added static route to r4 from r5
     r5 = net.addHost('r5', cls=Node, ip='10.0.20.1/24')
     r5.cmd('sysctl -w net.ipv4.ip_forward=1')
-    r5.cmd("ip route add 192.168.60.2/30 via 10.0.20.1 r5-eth1")
-    r5.cmd("ip route add 192.168.55.2/30 via 192.168.60.2/30 r4-eth1")
-  
+
     # added IP to r4
     # added static routes to r3 and r5 from r4
     r4 = net.addHost('r4', cls=Node, ip='192.168.30.1/30')
     r4.cmd('sysctl -w net.ipv4.ip_forward=1')
-    r4.cmd("ip route add 192.168.50.2/30 via 192.168.30.1/30 r4-eth0")
-    r4.cmd("ip route add 192.168.55.2/30 via 192.168.30.1/30 r4-eth1")
-  
+
     # added IP to r3
     # added static route to r4 from r3
     r3 = net.addHost('r3', cls=Node, ip='10.0.30.1/24')
     r3.cmd('sysctl -w net.ipv4.ip_forward=1')
-    r3.cmd("ip route add 192.168.50.2/30 via 10.0.30.1 r3-eth1")
-    r3.cmd("ip route add 192.168.50.2/30 via 10.0.30.1 r4-eth0")
-    
+    r3.cmd("ip route add 192.168.60.1/30 via 192.168.30.1 dev r3-eth1")
+    r3.cmd("ip route add 192.168.60.2/30 via 192.168.30.1 dev r3-eth1")
+
+
     info( '*** Add hosts\n')
     # added IP to h1 and the default route of r3
     h1 = net.addHost( 'h1', cls=Host, ip='10.0.30.2/24',
@@ -66,11 +62,11 @@ def myNetwork():
     # added IP to h2 and the default route of r3
     h2 = net.addHost( 'h2', cls=Host, ip='10.0.30.3/24',
                       defaultRoute='10.0.30.1')
-    
+
     # added IP to h3 and the default route of r5
     h3 = net.addHost( 'h3', cls=Host, ip='10.0.20.2/24',
                       defaultRoute='10.0.20.1')
-    
+
     # added IP to h4 and the default route of r5
     h4 = net.addHost( 'h4', cls=Host, ip='10.0.20.3/24',
                       defaultRoute='10.0.20.1')
@@ -86,20 +82,20 @@ def myNetwork():
 
     # added intfName1 of r3
     # added intfName2 of r4
-    net.addLink( r3, 
-                 r4, 
-                 intfName1='r3-eth1', 
-                 intfName2='r4-eth0', 
-                 params1={ 'ip' : '192.168.30.1/30' }, 
-                 params2={ 'ip' : '192.168.50.2/30' } )
+    net.addLink( r3,
+                 r4,
+                 intfName1='r3-eth1',
+                 intfName2='r4-eth0',
+                 params1={ 'ip' : '192.168.30.2/30' },
+                 params2={ 'ip' : '192.168.30.1/30' } )
 
     # added intfName1 of r4
-    # added intfName2 of r5 
-    net.addLink(r4, 
-                r5,  
-                intfName1='r4-eth1', 
-                intfName2='r5-eth1', 
-                params1={ 'ip' : '192.168.55.2/30' }, 
+    # added intfName2 of r5
+    net.addLink(r4,
+                r5,
+                intfName1='r4-eth1',
+                intfName2='r5-eth1',
+                params1={ 'ip' : '192.168.60.1/30' },
                 params2={ 'ip' : '192.168.60.2/30' } )
 
     info( '*** Starting network\n')
