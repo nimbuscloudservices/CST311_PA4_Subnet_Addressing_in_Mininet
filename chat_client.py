@@ -8,7 +8,7 @@ class chat_client:
 
     def __init__(self):
 
-        self.SERVER_ADDR = "127.0.0.1"
+        self.SERVER_ADDR = "10.0.2.50"
         self.SERVER_PORT = 12013
         self.ADDR = (self.SERVER_ADDR, self.SERVER_PORT)
         self.end_chat = False
