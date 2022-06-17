@@ -13,7 +13,7 @@ from mininet.node import IVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import TCLink, Intf
-from subprocess import call
+from mininet.term import makeTerm
 
 __author__ = "Layla Gallez, Saul Mendoza-Loera, Yavik Kapadia"
 __credits__ = ["Layla Gallez", "Saul Mendoza-Loera", "Yavik Kapadia"]
@@ -112,8 +112,8 @@ def myNetwork():
     r5.cmd('ip route add 192.168.1.0/30 via 192.168.1.5 dev r5-eth1')
 
     # [Changelog] added cmd to start webserver on
-    h2.cmd("python3 web_server.py")
     CLI(net)
+    net.makeTerm
     net.stop()
 
 
