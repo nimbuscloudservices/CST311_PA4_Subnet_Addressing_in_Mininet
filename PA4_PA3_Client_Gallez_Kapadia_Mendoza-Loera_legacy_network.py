@@ -1,9 +1,7 @@
 #!/usr/bin/python
 """
 Team Programming Assignment #4 Subnet Addressing In Mininet
-Changelog:
-- Moved S2 and S1 instantiation lines before R5 instantiation to revolve runtime errors.
--
+Team 5 Layla, Saul, Yavik
 """
 import subprocess
 
