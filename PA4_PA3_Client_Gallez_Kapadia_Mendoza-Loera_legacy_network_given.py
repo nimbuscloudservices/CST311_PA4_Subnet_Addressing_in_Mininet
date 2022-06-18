@@ -5,6 +5,8 @@ Changelog:
 - Moved S2 and S1 instantiation lines before R5 instantiation to revolve runtime errors.
 -
 """
+import subprocess
+
 from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, OVSController
 from mininet.node import Host, Node
@@ -20,6 +22,7 @@ __author__ = "Layla Gallez, Saul Mendoza-Loera, Yavik Kapadia"
 __credits__ = ["Layla Gallez", "Saul Mendoza-Loera", "Yavik Kapadia"]
 __status__ = "Prototype"
 __date__ = "June 2nd, 2022"
+
 
 def myNetwork():
     net = Mininet(topo=None,
@@ -113,14 +116,13 @@ def myNetwork():
     r5.cmd('ip route add 192.168.1.0/30 via 192.168.1.5 dev r5-eth1')
 
     # start h1, h2, h3, h4 terminals
-    chatServer=makeTerm(h4, 'Chat Server', 'xterm', None, 'python3 chat_server.py')
-    tslwebServer=makeTerm(h2, 'TLS-enabled Simple Web Server', 'xterm', None, 'python3 web_server.py')
+    subprocess.call(["sh", "PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_cert.sh"])
+    chatServer = makeTerm(h4, 'Chat Server', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_server.py')
+    tslwebServer = makeTerm(h2, 'TLS-enabled Simple Web Server', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_web_server.py')
     time.sleep(0.5)
-    clientXChat=makeTerm(h1, 'Client Chat', 'xterm', None, 'python3 chat_client.py')
-    clientYChat=makeTerm(h3, 'Client Chat', 'xterm', None, 'python3 chat_client.py')
+    clientXChat = makeTerm(h1, 'Client Chat', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_client.py')
+    clientYChat = makeTerm(h3, 'Client Chat', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_client.py')
 
-
-    # [Changelog] added cmd to start webserver on
     CLI(net)
     net.stop()
 
