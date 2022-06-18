@@ -114,12 +114,12 @@ def myNetwork():
     r5.cmd('ip route add 192.168.1.0/30 via 192.168.1.5 dev r5-eth1')
 
     # start h1, h2, h3, h4 terminals
-    subprocess.call(["sh", "PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_cert.sh"])
-    chatServer = makeTerm(h4, 'Chat Server', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_server.py')
-    tslwebServer = makeTerm(h2, 'TLS-enabled Simple Web Server', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_web_server.py')
+    subprocess.call(["sh", "PA4_Gallez_Kapadia_Mendoza-Loera_chat_cert.sh"])
+    chatServer = makeTerm(h4, 'Chat Server', 'xterm', None, 'python3 PA4_Gallez_Kapadia_Mendoza-Loera_chat_server.py')
+    tslwebServer = makeTerm(h2, 'TLS-enabled Simple Web Server', 'xterm', None, 'python3 PA4_Gallez_Kapadia_Mendoza-Loera_web_server.py')
     time.sleep(0.5)
-    clientXChat = makeTerm(h1, 'Client Chat', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_client.py')
-    clientYChat = makeTerm(h3, 'Client Chat', 'xterm', None, 'python3 PA4_PA3_Client_Gallez_Kapadia_Mendoza-Loera_chat_client.py')
+    clientXChat = makeTerm(h1, 'Client Chat', 'xterm', None, 'python3 PA4_Gallez_Kapadia_Mendoza-Loera_chat_client.py')
+    clientYChat = makeTerm(h3, 'Client Chat', 'xterm', None, 'python3 PA4_Gallez_Kapadia_Mendoza-Loera_chat_client.py')
 
     CLI(net)
     net.stop()
